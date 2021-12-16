@@ -34,17 +34,35 @@ describe('[GET] /students', () => {
 });
 
 describe('[POST] /api/students', () => {
-  test('responds with new student', async () => {
-      const res = await request(server)
-      .post('/api/students').send({ student_name: 'Alexander' })
-      expect(res.body).toMatchObject({ student_id: 5, student_name: 'Alexander' })
-  })
-  test('responds with status 201', async () => {
-      const res = await request(server)
-      .post('/api/students').send({ student_name: 'Alexander' })
-      expect(res.status).toBe(201)
-  })
+    let res
+    beforeEach(async () => {
+        res = await request(server)
+           .post('/api/students')
+           .send({ student_name: 'Alexander' })
+    });     
+    it('responds with new student', async () => {
+        expect(res.body).toMatchObject({ student_id: 5, student_name: 'Alexander' })
+    })
+    it('responds with status 201', async () => {
+        expect(res.status).toBe(201)
+    })
+    it('responds with da new (snapshot)', () => {
+        expect(res.body).toMatchSnapshot()
+        })
 })
+
+// describe('[POST] /api/students', () => {
+//   it('responds with new student', async () => {
+//       const res = await request(server)
+//       .post('/api/students').send({ student_name: 'Alexander' })
+//       expect(res.body).toMatchObject({ student_id: 5, student_name: 'Alexander' })
+//   })
+//   it('responds with status 201', async () => {
+//       const res = await request(server)
+//       .post('/api/students').send({ student_name: 'Alexander' })
+//       expect(res.status).toBe(201)
+//   })
+// })
 
 
 describe('[DELETE] /students/:id', () => {

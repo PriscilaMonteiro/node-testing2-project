@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[POST] /api/students responds with da new (snapshot) 1`] = `
+Object {
+  "student_id": 5,
+  "student_name": "Alexander",
+}
+`;
