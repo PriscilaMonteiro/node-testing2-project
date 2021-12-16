@@ -18,7 +18,7 @@ Here is a checklist of tasks to help you put your project together:
   You should run: npx gitignore node
 
 - ✅ Install express, knex, sqlite3 as plain dependencies.
-  you should run : npm i express knex sqlite3
+  you should run : npm i express knex sqlite3 dotenv
 
 - ✅ Install jest✔️, eslint✔️, nodemon✔️, supertest✔️, cross-env✔️ as dev-dependencies.
 
